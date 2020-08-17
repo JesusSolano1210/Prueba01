@@ -5,6 +5,8 @@
  */
 package Formularios;
 
+import java.awt.Color;
+
 /**
  *
  * @author esteb
@@ -44,29 +46,69 @@ public class FormularioIngreso extends javax.swing.JPanel {
         jComboBoxPrograma = new javax.swing.JComboBox<>();
         jButtonAceptar = new javax.swing.JButton();
 
-        setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Registro Ingreso", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+        setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Registro Ingreso", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Open Sans", 1, 14))); // NOI18N
 
+        jLabel1.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         jLabel1.setText("Documento");
 
+        jTextFieldNumeroDocumento.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
+
+        jComboBoxDocumento.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         jComboBoxDocumento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione...", "C.C", "C.E", "P.A", "R.C", "T.I" }));
 
+        jLabel2.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         jLabel2.setText("Nombres");
 
+        jLabel3.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         jLabel3.setText("Telefono");
 
+        jLabel4.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         jLabel4.setText("Apellidos");
 
+        jLabel5.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         jLabel5.setText("Ciudad");
 
+        jLabel6.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         jLabel6.setText("Cargo");
 
+        jLabel7.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         jLabel7.setText("Programa");
 
+        jTextFieldNombres.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
+
+        jTextFieldApellidos.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
+
+        jTextFieldTelefono.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
+
+        jTextFieldCiudad.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
+
+        jComboBoxCargo.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         jComboBoxCargo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione...", "Administrativo", "Estudiante", "Docente" }));
 
+        jComboBoxPrograma.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         jComboBoxPrograma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione...", "Administracion de Empresas", "Comunicación Social", "Psicologia", "Licenciatura en Literatura", "Licenciatura en Historia", "Licenciatura en Música", "Tecnología en Sistemas", "Tecnología en Electrónica", "Tecnología en Administracion de empresas Turísticas" }));
 
+        jButtonAceptar.setBackground(new java.awt.Color(0, 194, 39));
+        jButtonAceptar.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
+        jButtonAceptar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonAceptar.setText("Aceptar");
+        jButtonAceptar.setBorder(null);
+        jButtonAceptar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonAceptar.setFocusPainted(false);
+        jButtonAceptar.setOpaque(true);
+        jButtonAceptar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButtonAceptarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButtonAceptarMouseExited(evt);
+            }
+        });
+        jButtonAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAceptarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -101,13 +143,13 @@ public class FormularioIngreso extends javax.swing.JPanel {
                             .addComponent(jComboBoxDocumento, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(154, 154, 154)
-                        .addComponent(jButtonAceptar)))
-                .addContainerGap(75, Short.MAX_VALUE))
+                        .addComponent(jButtonAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
+                .addContainerGap(20, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBoxDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
@@ -137,11 +179,23 @@ public class FormularioIngreso extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(jComboBoxPrograma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonAceptar)
-                .addGap(14, 14, 14))
+                .addGap(24, 24, 24)
+                .addComponent(jButtonAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonAceptarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAceptarMouseEntered
+        jButtonAceptar.setBackground(new Color(5, 123, 48));
+    }//GEN-LAST:event_jButtonAceptarMouseEntered
+
+    private void jButtonAceptarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAceptarMouseExited
+        jButtonAceptar.setBackground(new Color(0, 194, 39));
+    }//GEN-LAST:event_jButtonAceptarMouseExited
+
+    private void jButtonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAceptarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonAceptarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

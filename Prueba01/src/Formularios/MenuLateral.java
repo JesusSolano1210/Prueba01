@@ -6,6 +6,8 @@
 package Formularios;
 
 import java.awt.Color;
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
 
 /**
  *
@@ -167,7 +169,16 @@ public class MenuLateral extends javax.swing.JPanel {
         jButtonShowHiden.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/botonVerticalClose.png"))); // NOI18N
         jButtonShowHiden.setToolTipText("");
         jButtonShowHiden.setBorder(null);
+        jButtonShowHiden.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonShowHiden.setFocusPainted(false);
+        jButtonShowHiden.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButtonShowHidenMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButtonShowHidenMouseExited(evt);
+            }
+        });
         jButtonShowHiden.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonShowHidenActionPerformed(evt);
@@ -179,7 +190,7 @@ public class MenuLateral extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(13, 13, 13)
+                .addGap(7, 7, 7)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelCovid19, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelLogo)
@@ -194,23 +205,21 @@ public class MenuLateral extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(jLabelCovid19)
+                .addGap(8, 8, 8)
+                .addComponent(jLabelLogo)
+                .addGap(6, 6, 6)
+                .addComponent(jButtonIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabelCovid19, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(8, 8, 8)
-                        .addComponent(jLabelLogo)
-                        .addGap(6, 6, 6)
-                        .addComponent(jButtonIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(jButtonSalidas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(jButtonPersonas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(jButtonNovedades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(jButtonReportes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButtonShowHiden, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(jButtonSalidas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(jButtonPersonas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(jButtonNovedades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(jButtonReportes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jButtonShowHiden, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -260,21 +269,36 @@ public class MenuLateral extends javax.swing.JPanel {
         if (jLabelCovid19.isVisible()) {
             jButtonShowHiden.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/botonVerticalOpen.png"))); // NOI18N
             ocultarComponentes();
-            
-        }else{
+            setBorder(BorderFactory.createEmptyBorder(0, -12, 0, 0));
+            jfc.setDesplegado(false);
+
+        } else {
             jButtonShowHiden.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/botonVerticalClose.png"))); // NOI18N
             mostrarComponentes();
+            setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+            jfc.setDesplegado(true);
         }
 
     }//GEN-LAST:event_jButtonShowHidenActionPerformed
 
     private void jButtonIngresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIngresoActionPerformed
         jfc.setVisibleFormIngreso();
+        jLabelCovid19.setText("Ingreso");
     }//GEN-LAST:event_jButtonIngresoActionPerformed
 
     private void jButtonNovedadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNovedadesActionPerformed
         jfc.setVisibleRegNovedades();
+        jLabelCovid19.setText("Novedades");
+
     }//GEN-LAST:event_jButtonNovedadesActionPerformed
+
+    private void jButtonShowHidenMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonShowHidenMouseEntered
+        jButtonShowHiden.setBackground(new Color(5, 123, 48));
+    }//GEN-LAST:event_jButtonShowHidenMouseEntered
+
+    private void jButtonShowHidenMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonShowHidenMouseExited
+        jButtonShowHiden.setBackground(new Color(0, 194, 39));
+    }//GEN-LAST:event_jButtonShowHidenMouseExited
 
     public void ocultarComponentes() {
 
@@ -300,6 +324,11 @@ public class MenuLateral extends javax.swing.JPanel {
         jButtonNovedades.setVisible(mostrar);
         jButtonReportes.setVisible(mostrar);
     }
+
+    public JButton getjButtonShowHiden() {
+        return jButtonShowHiden;
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonIngreso;
